@@ -13,18 +13,47 @@ class Student {
         this.firstName = firstName;
         this.lastName = lastName;
         this.grade = year;
+        this.tardies = 0;
+        this.scores = [];
+    }
+    // 1st instance method
+    fullName(){
+        return `Your full name is ${this.firstName} ${this.lastName}`;
+    }
+    //2nd instance method
+    markLate(){
+        this.tardies += 1;
+        if(this.tardies >= 3) return 'You are expelled!!!'
+        return `${this.firstName} ${this.lastName} has been late ${this.tardies} times`;
+    }
+    //3rd instance method
+    addScore(score){
+        this.scores.push(score);
+        return this.scores;
+    }
+    calculateAverage(){
+        let sum = this.scores.reduce((a,b) => a+b);
+        return sum / this.scores.length;
     }
 }
 //use NEW keyword  for calling a constructor
 //this tells JS to create new instance .
 //without the NEW keyword THIS would not point to the newly created object
 const firstStudent = new Student('Mike','Daniels',1);
-const secondStudent = new Student('Dora', 'Trump',3);
-
+const secondStudent = new Student('Dora', 'Trump',2);
 console.log(firstStudent);
-console.log(firstStudent.firstName);
-console.log(firstStudent.lastName);
-console.log(firstStudent.grade);
-console.log(secondStudent);
-console.log(secondStudent.firstName);
-console.log(secondStudent.lastName);
+console.log(firstStudent.fullName());
+console.log(firstStudent.markLate());
+console.log(firstStudent.tardies);
+console.log(firstStudent.markLate());
+console.log(firstStudent.markLate());
+console.log(firstStudent.markLate());
+console.clear()
+
+
+console.log(secondStudent.fullName());
+console.log(secondStudent.addScore(45));
+console.log(secondStudent.addScore(89));
+console.log(secondStudent.addScore(99));
+console.log(secondStudent.calculateAverage());
+
