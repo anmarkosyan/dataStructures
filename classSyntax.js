@@ -35,12 +35,18 @@ class Student {
         let sum = this.scores.reduce((a,b) => a+b);
         return sum / this.scores.length;
     }
+    //static method for a class method,using STATIC keyword,for creating utility functions
+    static enrollStudent(){
+        return 'This is  enroll students!!'
+    }
 }
+
 //use NEW keyword  for calling a constructor
 //this tells JS to create new instance .
 //without the NEW keyword THIS would not point to the newly created object
 const firstStudent = new Student('Mike','Daniels',1);
 const secondStudent = new Student('Dora', 'Trump',2);
+
 console.log(firstStudent);
 console.log(firstStudent.fullName());
 console.log(firstStudent.markLate());
@@ -56,4 +62,8 @@ console.log(secondStudent.addScore(45));
 console.log(secondStudent.addScore(89));
 console.log(secondStudent.addScore(99));
 console.log(secondStudent.calculateAverage());
+//how to access class method,it CANNOT be called through class instance
+console.log(Student.enrollStudent());
+
+
 
