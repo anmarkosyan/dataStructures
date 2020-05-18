@@ -32,14 +32,14 @@
         return this;
     }
     //pop value to the tail, and return the value of the node removed
-     pop(){
-        //check if there are no nodes
-         if(!this.head) return undefined;
+     pop() {
+         //check if there are no nodes
+         if (!this.head) return undefined;
          //loop through the list until you reach the tail
          //create 2 variables for check last node,starting over first value
          let current = this.head;
          let newTail = current;
-         while(current.next){
+         while (current.next) {
              newTail = current;
              current = current.next;
          }
@@ -49,16 +49,30 @@
          this.tail.next = null;
          this.length--;
          //if the length is 0
-         if(this.length === 0){
+         if (this.length === 0) {
              this.head = null;
              this.tail = null;
          }
          return current;
      }
 
+     //shift node and return the value of the node remove
+     shift() {
+         //if there are no nods return undefined
+         if(!this.head) return undefined;
+         //store the current head property in a variable
+         let currHead = this.head;
+         this.head = currHead.next;
+         //decrement the length by 1
+         this.length--;
+         if(this.length === 0) {
+             this.tail = null;
+         }
+         //return the value of the node remove
+         return currHead;
+     }
+}
 
-
- }
  const list = new SinglyLinkedList();
 
 console.log(list.push('hi'));
@@ -70,4 +84,10 @@ console.log(list.pop());
 console.log(list.pop());
 console.log(list.pop());
 console.log(list);
+console.clear();
+console.log(list.push('100'));
+console.log(list.push('200'));
+console.log(list.shift());
+console.log(list.shift());
+
 
