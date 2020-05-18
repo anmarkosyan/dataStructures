@@ -12,7 +12,7 @@
         this.next = null;
     }
  }
- class SinglyLinkedList{
+ class SinglyLinkedList {
     constructor() {
         this.length = 0;
         this.head = null;
@@ -56,7 +56,7 @@
          return current;
      }
 
-     //shift node and return the value of the node remove
+     //shift
      shift() {
          //if there are no nods return undefined
          if(!this.head) return undefined;
@@ -71,6 +71,20 @@
          //return the value of the node remove
          return currHead;
      }
+     //unshift
+     unshift(val){
+        let newVal = new Node(val);
+         if(!this.head){
+             this.head = newVal;
+             this.tail = this.head;
+         }else {
+             newVal.next = this.head.next;
+             this.head = newVal;
+         }
+             this.length++;
+             //return the linked list
+             return this;
+    }
 }
 
  const list = new SinglyLinkedList();
@@ -78,7 +92,6 @@
 console.log(list.push('hi'));
 console.log(list.push('there'));
 console.log(list.push('how'));
-console.log(list.head.next.next);
 console.clear();
 console.log(list.pop());
 console.log(list.pop());
@@ -89,5 +102,10 @@ console.log(list.push('100'));
 console.log(list.push('200'));
 console.log(list.shift());
 console.log(list.shift());
+console.clear();
+console.log(list.push('100'));
+console.log(list.push('1000'));
+console.log(list.unshift('10'));
+console.log(list.unshift('1'));
 
 
