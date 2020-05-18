@@ -85,6 +85,20 @@
              //return the linked list
              return this;
     }
+
+     //get is a method that takes a number an index or a position
+     //and return the item in that position
+     get(index){
+        if(index < 0 || index >= this.length) return null;
+        let counter = 0;
+        let current = this.head;
+        while(counter !== index){
+            current = current.next;
+            counter++;
+        }
+        return current;
+    }
+
 }
 
  const list = new SinglyLinkedList();
@@ -92,20 +106,10 @@
 console.log(list.push('hi'));
 console.log(list.push('there'));
 console.log(list.push('how'));
-console.clear();
-console.log(list.pop());
-console.log(list.pop());
-console.log(list.pop());
+console.log(list.push('are'));
+console.log(list.push('you'));
 console.log(list);
-console.clear();
-console.log(list.push('100'));
-console.log(list.push('200'));
-console.log(list.shift());
-console.log(list.shift());
-console.clear();
-console.log(list.push('100'));
-console.log(list.push('1000'));
-console.log(list.unshift('10'));
-console.log(list.unshift('1'));
+console.log(list.get(2));
+console.log(list.get(3));
 
 
