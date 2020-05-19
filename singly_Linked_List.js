@@ -137,6 +137,25 @@
         return removed;
 
      }
+     //reverse the linked list in place(do not make a copy place)
+     reverse(){
+        //swap the head and tail
+         let swap = this.head;
+         this.head = this.tail;
+         this.tail = swap;
+         let next;
+         let prev = null;
+
+         //loop through the length
+         for(let i = 0; i < this.length; i++){
+             next = swap.next;
+             swap.next = prev;
+             prev = swap;
+             swap = next;
+
+         }
+         return this;
+    }
 
 }
 
@@ -147,9 +166,9 @@ console.log(list.push('there'));
 console.log(list.push('how'));
 console.log(list.push('are'));
 console.log(list.push('you'));
-console.log(list.get(3));
-console.log(list.remove(3));
-console.log(list.remove(2));
-console.log(list);
+console.log(list.reverse());
+console.log(list.head);
+console.log(list.tail);
+
 
 
