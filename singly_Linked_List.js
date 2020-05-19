@@ -108,6 +108,21 @@
             return true;
         }
         return false
+    }
+    insert(index,val){
+        if(index < 0 || index > this.length) return false;
+        if(index === this.length) return !!this.push(val);
+        if(index === 0) return !!this.unshift(val);
+
+        //if index somewhere in the middle
+        let newNode = new Node(val);
+        let prev = this.get(index -1);
+        let temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        //return true if the insert worked
+        return true;
 
     }
 
@@ -120,11 +135,8 @@ console.log(list.push('there'));
 console.log(list.push('how'));
 console.log(list.push('are'));
 console.log(list.push('you'));
+console.log(list.get(3));
+console.log(list.insert(3,'be'));
 
-console.log(list.get(2));
-console.log(list.set(2,'what'));
-console.log(list);
-console.log(list.get(2));
-console.log(list.set(5,'what'));
 
 
