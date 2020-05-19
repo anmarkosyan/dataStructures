@@ -98,6 +98,18 @@
         }
         return current;
     }
+    //create set method for changing the value of the node based on its
+     //position on the linked list
+    set(index,val){
+        //call get method to find correct index
+        let foundNode = this.get(index);
+        if(foundNode){
+            foundNode.val = val;
+            return true;
+        }
+        return false
+
+    }
 
 }
 
@@ -108,8 +120,11 @@ console.log(list.push('there'));
 console.log(list.push('how'));
 console.log(list.push('are'));
 console.log(list.push('you'));
+
+console.log(list.get(2));
+console.log(list.set(2,'what'));
 console.log(list);
 console.log(list.get(2));
-console.log(list.get(3));
+console.log(list.set(5,'what'));
 
 
