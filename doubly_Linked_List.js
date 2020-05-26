@@ -47,7 +47,26 @@ class DoubleLinkedList{
         this.length++;
         return this;
     }
+    //pop,removing  the node from the end of the  double linked list
+    //and return the removed node
+    pop(){
+        if(this.length === 0) return undefined;
+        const newTail = this.tail;
+        if(this.length === 1){
+            this.head = null;
+            this.tail = null;
+        }else{
+            this.tail = newTail.prev;
+            this.tail.next = null;
+            newTail.prev = null;
+        }
+        this.length--;
+        return newTail;
+    }
+
 }
+const head = new Node(23);
+const list = new DoubleLinkedList();
 
 
 /*
