@@ -63,25 +63,25 @@ class DoubleLinkedList{
         this.length--;
         return newTail;
     }
+    //shift ,removing the node from the beginning  of the double linked list
+    //return the old head
+    shift(){
+        if(this.length === 0) return undefined;
+        let oldHead = this.head;
+        if(this.length === 1){
+            this.head = null;
+            this.tail = null;
+        }else{
+            this.head = oldHead.next;
+            this.head.prev = null;
+            oldHead.next = null;
 
+        }
+        this.length --;
+        return oldHead;
+    }
 }
-const head = new Node(23);
-const list = new DoubleLinkedList();
 
-
-/*
-//create first node
-const head = new Node('23');
-//add second node
-const secondNode = new Node(16);
-head.next = secondNode;
-secondNode.prev = head;
-//add third node
-const thirdNode = new Node(10);
-secondNode.next = thirdNode;
-thirdNode.prev= secondNode;
-const tail = thirdNode;
-*/
 
 
 
