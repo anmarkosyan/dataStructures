@@ -146,7 +146,25 @@ class DoubleLinkedList{
 
         this.length++;
         return true;
+    }
+    //remove,removing a node in a double linked list, by a certain position
+    remove(index){
+        if(index < 0 || index >= this.length) return undefined;
+        if(index === 0) return this.shift();
+        if(index === this.length-1) return this.pop();
 
+        let removeNode = this.get(index);
+        let prevNode = removeNode.prev;
+        let nextNode = removeNode.next;
+
+        prevNode.next = nextNode
+        nextNode.prev = prevNode;
+        // removeNode.prev.next = removeNode.next;
+        // removeNode.next.prev = removeNode.prev;
+        removeNode.next = null;
+        removeNode.prev = null;
+        this.length--;
+        return removeNode;
 
     }
 }
