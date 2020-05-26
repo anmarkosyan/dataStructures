@@ -96,7 +96,37 @@ class DoubleLinkedList{
         return this;
 
     }
+    //get,accessing a node in a doubly linked list by its position
+    //and return the node of that position
+    get(index){
+        if(index < 0 || index >= this.length) return null;
+        let curr,count;
+        //we divide the list length by 2
+        //loop over first part the list toward middle
+        if(index <= this.length/2) {
+             count = 0;
+             curr = this.head;
+            while (count !== index) {
+                curr = curr.next;
+                count++;
+            }
+        }else{
+            //loop for second part of list,stating to the end
+             count = this.length -1;
+             curr = this.tail;
+            while(count !== index){
+                curr = curr.prev;
+                count--;
+            }
+        }
+        return curr;
+    }
 }
+
+const list = new DoubleLinkedList();
+list.push(23);
+list.push(100);
+list.push(99);
 
 
 
