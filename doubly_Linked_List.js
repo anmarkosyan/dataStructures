@@ -80,7 +80,24 @@ class DoubleLinkedList{
         this.length --;
         return oldHead;
     }
+    //unshift,adding the node of the beginning to the double liked list
+    //return the hole list
+    unshift(val){
+        const newHead = new Node(val);
+        if(this.length === 0){
+            this.head = newHead;
+            this.tail = newHead;
+        }else{
+            this.head.prev = newHead;
+            newHead.next = this.head;
+            this.head = newHead;
+        }
+        this.length++;
+        return this;
+
+    }
 }
+
 
 
 
