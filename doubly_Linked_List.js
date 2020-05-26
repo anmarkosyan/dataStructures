@@ -121,12 +121,22 @@ class DoubleLinkedList{
         }
         return curr;
     }
+    //set,replacing the value of the node in the double linked list
+    set(index,val){
+        let foundNode = this.get(index);
+        if(foundNode !== null){
+            foundNode.val = val;
+            return true;
+        }
+        return false;
+
+    }
 }
 
 const list = new DoubleLinkedList();
-list.push(23);
-list.push(100);
-list.push(99);
+list.push('hi');
+list.push('hello');
+list.push('ola');
 
 
 
