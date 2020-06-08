@@ -164,11 +164,5 @@
 console.log(list.push('hi'));
 console.log(list.push('there'));
 console.log(list.push('how'));
-console.log(list.push('are'));
-console.log(list.push('you'));
-console.log(list.reverse());
-console.log(list.head);
-console.log(list.tail);
-
 
 
