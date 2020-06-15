@@ -70,6 +70,41 @@ class BinarySearchTrees {
         }
         return data;
     }
+    // there is 3 different ways to explore Depth First Search(DFS)
+    // preOrder type of searching using DFS algorithms//output [10,5,2,7,13,11,18]
+    DFSPreOrder(){
+        let data = [];
+        //use helper recursion function
+        function traverse(node) {
+            data.push(node.val);
+            if(node.left) traverse(node.left);
+            if(node.right) traverse(node.right);
+         }
+         traverse(this.root);
+        return data;
+    }
+    //output [2,7,5,11,18,13,10]
+    DFSPostOrder(){
+        let data = [];
+        function traverse(node) {
+            if(node.left) traverse(node.left);
+            if(node.right) traverse(node.right);
+            data.push(node.val);
+        }
+        traverse(this.root);
+        return data;
+    }
+    //output [2,5,7,10,11,13,18]
+    DFSInOrder(){
+        let data = [];
+        function traverse(node) {
+            node.left && traverse(node.left);
+            data.push(node.val);
+            node.right && traverse(node.right);
+        }
+        traverse(this.root);
+        return data;
+    }
 }
 const tree = new BinarySearchTrees();
 tree.insert(10);
