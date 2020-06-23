@@ -1,5 +1,5 @@
 
-/*class MaxBinaryHeap {
+class MaxBinaryHeap {
     constructor() {
         this.value = [41,39,33,18,27,12];
     }
@@ -69,7 +69,7 @@ const heap = new MaxBinaryHeap();
 //   [41,39,33,18,27,12]// insert
 //idx 0, 1, 2, 3, 4, 5
 
- */
+
 
 // this is a Priority queue using maxBinaryHeap, but changing some steps
 class Node{
