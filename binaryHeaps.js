@@ -71,7 +71,7 @@ const heap = new MaxBinaryHeap();
 
 
 
-// this is a Priority queue using maxBinaryHeap, but changing some steps
+// this is a Priority queue using minBinaryHeap, but changing some steps
 class Node{
     constructor(val,priority) {
         this.val = val;
@@ -93,7 +93,7 @@ class PriorityHeap {
         while (idx > 0){
             let parentIdx = Math.floor((idx -1) / 2);
             let parent = this.value[parentIdx];
-            if(element.priority <= parent.priority) break;
+            if(element.priority >= parent.priority) break;
             this.value[parentIdx] = element;
             this.value[idx] = parent;
             idx = parentIdx;
@@ -102,14 +102,14 @@ class PriorityHeap {
     dequeue(){
         //we extract first value, and swap end to be first
         //at the end return removed value(firstVal)
-        const max = this.value[0];
+        const min = this.value[0];
         const end = this.value.pop();
         if(this.value.length > 0){
             this.value[0] = end
             //now we shat replace new root in its right place
             this.sinkDown();
         }
-        return max;
+        return min;
     }
     sinkDown(){
         let idx = 0;
@@ -123,15 +123,15 @@ class PriorityHeap {
 
             if(leftChildIdx < length){
                 leftChild = this.value[leftChildIdx];
-                if(leftChild.priority > element.priority){
+                if(leftChild.priority < element.priority){
                     swap = leftChildIdx;
                 }
             }
             if(rightChildIdx < length) {
                 rightChild = this.value[rightChildIdx];
                 if(
-                    (swap === null && rightChild.priority > element.priority) ||
-                    (swap !== null && rightChild.priority > leftChild.priority)
+                    (swap === null && rightChild.priority < element.priority) ||
+                    (swap !== null && rightChild.priority < leftChild.priority)
                 ){
                     swap = rightChildIdx;
                 }
@@ -146,8 +146,9 @@ class PriorityHeap {
 }
 
 const priority = new PriorityHeap();
-priority.enqueue("hello",3);
-priority.enqueue("welcome",5);
-priority.enqueue("salute",1);
+priority.enqueue("cold",4);
+priority.enqueue("freezing",2);
+priority.enqueue("icy",1);
+priority.enqueue("icy-cold",3);
 
 
